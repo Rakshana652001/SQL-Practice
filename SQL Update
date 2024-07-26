@@ -1,0 +1,40 @@
+create schema practice;
+use practice;
+
+create table details
+(
+	id int,
+	firstName varchar(20),
+    lastName varchar(20)
+);
+
+insert into details (id, firstName, lastName) values (104, 'Steve', 'Rogers');
+
+select * from details;
+
+create table address
+(
+	id int,
+    city varchar(20),
+    state varchar(20)
+);
+
+insert into address (id, city, state) values (103, 'E', 'F');
+select * from address;
+
+select firstName, lastName, city,state from details left join address on details.id = address.id;
+
+
+create table sales
+(
+	sale_id int,
+    employee_id int,
+    sale_date date,
+    sale_amout long
+);
+
+insert into sales (sale_id, employee_id, sale_date, sale_amout) value (103, 203, '2023-02-17', 2500);
+
+select * from sales;
+
+select distinct sale_amout as secondSale from sales order by sale_amout desc limit 1 offset 1;
